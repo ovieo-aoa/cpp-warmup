@@ -121,6 +121,42 @@ int main() {
     // =================================================================
 
     cout << "=== Q1 ===\n";
+    int count,streak,pos,size;
+    double sum, larg,maxx;
+    count = 0;
+    larg = 0.0;
+    pos = 0;
+    streak = 0;
+    vector <int> streaks;
+    for (double num : morningWeights){
+        sum += num;
+        if(0 < num and num <= 80){
+            count += 1;
+            streak +=1;
+        }
+        else{
+            streaks.push_back(streak);
+            streak = 0;
+        }
+    }
+    maxx = 0;
+    for(int i = 0 ; i < 12 ; i++){
+        if(morningWeights[i] > larg){
+            larg = morningWeights[i];
+            pos = i +1;
+        }
+    }
+    size = streaks.size();
+    for (int i = 0 ; i < size ; i++){
+        if(streaks[i] > maxx ){
+            maxx = streaks[i];
+        }
+    }
+    cout << "Total: " << sum << " kg" << "\n";
+    cout << "Valid: " << count << " of 12" << "\n";
+    cout << "Heaviest: " << larg << " kg at position " << pos << "\n";
+    cout << "Longest valid run: " << maxx;
+
 
 
 
