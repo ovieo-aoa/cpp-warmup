@@ -171,6 +171,47 @@ int main() {
     // =================================================================
 
     cout << "=== Q2 ===\n";
+    double An,Bn,Cn,Aa,Ba,Ca;
+    int Ac,Bc,Cc;
+    An = 0.0;
+    Bn = 0.0;
+    Cn = 0.0;
+    Ac = 0;
+    Bc = 0;
+    Cc = 0;
+    for (Delivery record : logbook){
+        if(record.grade == 'A'){
+            Ac +=1;
+            An += record.kg;
+        }
+        else if(record.grade == 'B'){
+            Bc += 1;
+            Bn += record.kg;
+        }
+        else if(record.grade == 'C'){
+            Cc += 1;
+            Cn += record.kg;
+        }
+    }
+    Aa = An/Ac;
+    Ba = Bn/Bc;
+    Ca = Cn/Cc;
+    
+    cout << "Grade A: " << Ac << " deliveries, " << An << " kg total, " << (An/Ac) << " kg average \n";
+    cout << "Grade B: " << Bc << " deliveries, " << Bn << " kg total, " << (Bn/Bc) << " kg average \n";
+    cout << "Grade C: " << Cc << " deliveries, " << Cn << " kg total, " << (Cn/Cc) << " kg average \n";
+    if(max({Aa,Ba,Ca}) == Aa){
+        cout << "Best average: Grade A";
+    }
+    else if(max({Aa,Ba,Ca}) == Ba){
+        cout << "Best average: Grade B";
+    }
+    else if(max({Aa,Ba,Ca}) == Ca){
+        cout << "Best average: Grade C";
+    }
+
+
+
 
 
 
